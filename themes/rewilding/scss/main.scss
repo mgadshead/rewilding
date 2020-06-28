@@ -1,0 +1,19 @@
+$font-string: 'Nunito', sans-serif; // sass doesn't like the comma inside the with function
+@use "bootstrap/scss/bootstrap" with (
+  $font-family-sans-serif: $font-string,
+  $grid-gutter-width: 32px,
+  $primary: #f2c8c2,
+  $secondary: #437C90,
+  $spacer: 2rem
+);
+@use 'vendor/hamburgers';
+@use 'vendor/lightgallery';
+@use 'utilities/variables';
+@use 'utilities/functions';
+@use 'utilities/mixins';
+@use 'base/typography';
+@use 'base/global';
+@use 'components/header';
+@use 'components/footer';
+@use 'page/home';
+@use 'page/default';

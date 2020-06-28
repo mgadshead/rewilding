@@ -1,0 +1,29 @@
+@use 'bootstrap/scss/bootstrap' as bs;
+@use '../utilities/variables' as v;
+
+@font-face {
+    font-family: 'Wild Spirit';
+    src: url('../fonts/wild_spirit-webfont.woff2') format('woff2'),
+        url('../fonts/wild_spirit-webfont.woff') format('woff');
+}
+
+h1 {
+    font-family: v.$cursive;
+    font-size: 240px;
+    text-align: center;
+    @include bs.media-breakpoint-down(lg) {
+        font-size: 160px;
+    }
+    @include bs.media-breakpoint-down(md) {
+        font-size: 80px;
+    }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: bs.$secondary;
+    margin-bottom: 16px;
+}

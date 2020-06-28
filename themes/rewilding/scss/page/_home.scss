@@ -1,0 +1,95 @@
+@use 'bootstrap/scss/bootstrap' as bs;
+@use '../utilities/variables' as v;
+
+// .home {
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: #000; // this is intended for behind a video with a fade from black
+}
+h1 {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    color: bs.$light;
+}
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+}
+.video-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(bs.$dark, 0.5);
+}
+.icon-list {
+    text-align: center;
+    max-width: 1888px;
+    margin-left: auto;
+    margin-right: auto;
+    .list-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 16px;
+    }
+    .col {
+        padding-left: 24px;
+        padding-right: 24px;
+        @media screen and (max-width: 1600px) {
+            flex-basis: calc(100% / 3);
+            margin-bottom: 40px;
+        }
+        @include bs.media-breakpoint-down(md) {
+            flex-basis: 50%;
+        }
+        @include bs.media-breakpoint-down(xs) {
+            flex-basis: 100%;
+        }
+    }
+    p {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+h3 {
+    // font-family: v.$cursive;
+    font-size: 1.5rem;
+    color: bs.$secondary;
+    line-height: 1;
+    font-weight: 600;
+}
+.gradient-animation-2 {
+    .translate-up-mobile {
+        @include bs.media-breakpoint-down(lg) {
+            margin-bottom: -64px;
+        }
+    }
+}
+h2 {
+    font-family: v.$cursive;
+    font-size: 8rem;
+    color: bs.$secondary;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 40px;
+    @include bs.media-breakpoint-down(lg) {
+        font-size: 4rem;
+    }
+}
+h4 {
+    color: bs.$secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+// }

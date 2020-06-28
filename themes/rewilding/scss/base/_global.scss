@@ -1,0 +1,165 @@
+@use 'bootstrap/scss/bootstrap' as bs;
+@use '../utilities/variables' as v;
+
+.gradient-animation-1 {
+    background-image: linear-gradient(
+        -360deg,
+        v.$fourth-color 0%,
+        bs.$primary 50%
+    );
+    animation: gradient-animation-1 16s linear infinite;
+    padding: 120px 0;
+    @include bs.media-breakpoint-down(lg) {
+        padding: 40px 0;
+    }
+}
+
+@keyframes gradient-animation-1 {
+    @for $i from 360 to -1 {
+        $ndeg: '-' + $i + 'deg';
+        #{((360 - $i) / 360) * 100%} {
+            background-image: linear-gradient(
+                -#{$i}deg,
+                v.$fourth-color 0%,
+                bs.$primary 50%
+            );
+        }
+    }
+}
+
+.gradient-animation-2 {
+    background-image: linear-gradient(
+        -360deg,
+        v.$third-color 0%,
+        bs.$primary 50%
+    );
+    animation: gradient-animation-2 16s linear infinite;
+    padding: 120px 0;
+    @include bs.media-breakpoint-down(lg) {
+        padding: 40px 0;
+    }
+}
+
+@keyframes gradient-animation-2 {
+    @for $i from 360 to -1 {
+        $ndeg: '-' + $i + 'deg';
+        #{((360 - $i) / 360) * 100%} {
+            background-image: linear-gradient(
+                -#{$i}deg,
+                v.$third-color 0%,
+                bs.$primary 50%
+            );
+        }
+    }
+}
+
+a {
+    transition: all 0.5s;
+    color: darken(bs.$primary, 15%);
+    font-weight: 700;
+    text-decoration: none;
+    &:hover {
+        color: bs.$primary;
+        text-decoration: none;
+    }
+}
+
+img {
+    max-width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+    &.animate-images {
+        opacity: 1;
+    }
+}
+
+section {
+    margin: 80px 0;
+}
+
+.text-box {
+    background: bs.$light;
+    padding: 64px;
+    @include bs.media-breakpoint-down(lg) {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+.translate-right {
+    transform: translateX(16px);
+}
+
+.translate-left {
+    transform: translateX(-16px);
+}
+
+.translate-up-mobile {
+    margin-bottom: -32px;
+    img {
+        @include bs.media-breakpoint-down(lg) {
+            transform: translateY(-32px);
+        }
+    }
+}
+
+.animate-in {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.5s;
+}
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.youtube-16-9-container {
+    padding-top: 56.25%;
+    position: relative;
+    margin-bottom: 40px;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.main-button {
+    a {
+        animation: gradient-animation-2 16s linear infinite;
+        padding-left: 40px;
+        padding-right: 40px;
+        transition: all 0.5s;
+        color: bs.$light !important;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        &::after {
+            content: 'Register';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: gradient-animation-1 16s linear infinite;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 2s;
+            border-radius: 5px;
+        }
+        &:hover {
+            color: bs.$light;
+            &:after {
+                opacity: 0;
+            }
+        }
+    }
+}
